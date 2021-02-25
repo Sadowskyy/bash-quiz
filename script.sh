@@ -35,6 +35,12 @@ do
       fi
     done
 
+    # Zczytaj odpowiedz
+    echo "Wprowadz "
+    read -p "- Twoja odpowiedz: " player_choice
+
+
+
 done 9< question_file
 
 
