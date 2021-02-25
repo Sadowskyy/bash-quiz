@@ -39,11 +39,24 @@ do
     echo "Wprowadz "
     read -p "- Twoja odpowiedz: " player_choice
 
-
+    #    Sprawdz czy to dobra odpowiedz
+    for choisce in "${choisces[@]}"
+    do
+      if [ $choisce == *"$sub_string*"]; then
+          solution = ${choisce::-4}
+          if [ $player_choice == $solution ]; then
+                      score=$(( ++score ))
+                      echo "Dobra odpowiedz"
+          fi
+          else
+                      echo "Zla odpowiedz, dobra odpowiedz to: $solution"
+          fi
+      fi
+    done
 
 done 9< question_file
 
-
+#Wyswietl punkty na koniec
 if [ $score  >0 ]; then
   echo "Spróbuj ponownie kiedys :D"
   echo "Twoja liczba punktow: $score/$(wc -l question_file)"
